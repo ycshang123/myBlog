@@ -16,9 +16,6 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
 /**
- * <p>
- * 
- * </p>
  *
  * @author ycshang
  * @since 2021-12-07

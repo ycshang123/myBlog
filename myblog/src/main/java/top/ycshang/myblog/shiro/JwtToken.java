@@ -4,7 +4,7 @@ import org.apache.shiro.authc.AuthenticationToken;
 
 /**
  * @program: myblog
- * @description:
+ * @description: JwtToken
  * @author: ycshang
  * @create: 2021-12-07 15:35
  **/

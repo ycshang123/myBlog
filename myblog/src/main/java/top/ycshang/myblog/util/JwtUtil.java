@@ -1,12 +1,5 @@
 package top.ycshang.myblog.util;
 
-/**
- * @program: myblog
- * @description:
- * @author: ycshang
- * @create: 2021-12-07 15:28
- **/
-
 
 
 import io.jsonwebtoken.Claims;
@@ -18,6 +11,12 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
+/**
+ * @program: myblog
+ * @description:
+ * @author: ycshang
+ * @create: 2021-12-07 15:28
+ **/
 @Slf4j
 @Data
 @Component

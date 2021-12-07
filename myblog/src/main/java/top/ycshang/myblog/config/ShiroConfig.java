@@ -31,13 +31,12 @@ import java.util.Map;
 @Configuration
 public class ShiroConfig {
 
-    @Autowired
+    @Resource
     JwtFilter jwtFilter;
 
     @Bean
     public SessionManager sessionManager(RedisSessionDAO redisSessionDAO) {
         DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
-
         // inject redisSessionDAO
         sessionManager.setSessionDAO(redisSessionDAO);
         return sessionManager;
@@ -47,12 +46,10 @@ public class ShiroConfig {
     public DefaultWebSecurityManager securityManager(AccountRealm accountRealm,
                                                      SessionManager sessionManager,
                                                      RedisCacheManager redisCacheManager) {
-
+        //关闭shiro自带的session
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager(accountRealm);
-
         //inject sessionManager
         securityManager.setSessionManager(sessionManager);
-
         // inject redisCacheManager
         securityManager.setCacheManager(redisCacheManager);
         return securityManager;
@@ -61,11 +58,10 @@ public class ShiroConfig {
     @Bean
     public ShiroFilterChainDefinition shiroFilterChainDefinition() {
         DefaultShiroFilterChainDefinition chainDefinition = new DefaultShiroFilterChainDefinition();
-
-        Map<String, String> filterMap = new LinkedHashMap<>();
-
-        filterMap.put("/**", "jwt");
-        chainDefinition.addPathDefinitions(filterMap);
+        //Map<String, String> filterMap = new LinkedHashMap<>();
+        ////通过注解方式校验权限
+        //filterMap.put("/**", "jwt");
+        //chainDefinition.addPathDefinitions(filterMap);
         return chainDefinition;
     }
 
